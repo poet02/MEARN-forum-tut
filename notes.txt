@@ -1,0 +1,64 @@
+notes
+
+mongo uses docu ents that is similiar to json
+
+--setup
+
+create cluster
+    --create user  
+db user mern
+xw4DbctblM4UcMeh
+
+mongodb+srv://thato:<password>@cluster0.iohao.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+
+-----------------------------------------------------------------------------------------
+installing express and other dependencies
+
+npm i express express-validator bycryptjs config gravatar jsonwebtoken mongoose request
+
+also need nodemon to watch our server
+npm i -D nodemon
+npm i -D concurrently
+\
+------------------------
+use passport for fb, twitter login etc
+
+
+---------------react---------------------------
+
+starting
+    -npx create-react-app client  //this cmd puts a rect app in a client folder
+    --concurrently runs both. When either changes? hopefully:
+--serving react
+
+
+running concurrently
+add to scripts in package.json
+"client": "npm start --prefix client",
+"dev": "concurrently \"npm run server\" \"npm run client\""
+
+npm run dev to start  in root  to run client and backend
+
+installl client dependencies  
+npm i axios react-router-dom redux react-redux redux-thunk redux-devtools-extension moment react-moment
+
+add proxy at the bottom in client package.json
+
+"proxy": "http://localhost:5000"
+
+------adding router to app to change pages ---------------
+
+
+
+
+---------redux---------
+reducer take an action, decides how to handle state
+
+41) load user and set auth token
+take token send to backend for validation, then load user and should happen every time the main app is loaded
+
+json token are stateless, should clear token
+
+-----------auth----------------------------
+give user token once assign to it to the headers
+load user from headers backend uath route
